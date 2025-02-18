@@ -26,6 +26,7 @@ def questions_creation(topic, language, qty):
             seed = random.randint(0, 999999999999)
         )
             questions.append(question.choices[0].message.content)
+            print(f"Question {q} has been generated successfully.")
         except:
             print("An error occured.")
     
