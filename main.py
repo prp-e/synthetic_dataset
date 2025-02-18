@@ -1,5 +1,6 @@
 import random
 import time
+import sqlite3
 from openai import OpenAI
 
 random.seed()
