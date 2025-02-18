@@ -7,6 +7,21 @@ random.seed()
 
 client = OpenAI(base_url = "https://text.pollinations.ai/openai", api_key="sk-0000000000000000000000000")
 
+def initialize_database():
+    conn = sqlite3.connect("db.sqlite")
+    cursor = conn.cursor()
+
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS data (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            question TEXT,
+            answer TEXT
+        )
+    ''')
+
+    conn.commit()
+    conn.close()
+
 def questions_creation(topic, language, qty):
     questions = []
     for q in range(qty):
