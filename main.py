@@ -33,6 +33,9 @@ def questions_creation(topic, language, qty):
     
     return questions
 
+def answer_creation(question):
+    pass
+
 if __name__ == "__main__":
     topics = [
     "abstract_algebra", "anatomy", "astronomy", "business_ethics", "clinical_knowledge",
