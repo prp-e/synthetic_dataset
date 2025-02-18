@@ -35,7 +35,7 @@ def questions_creation(topic, language, qty):
 
 def answer_creation(question, language):
     
-    answer = client.chat.completion.create(
+    answer = client.chat.completions.create(
         model = "openai",
         messages = [
             {
