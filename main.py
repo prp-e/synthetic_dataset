@@ -112,5 +112,5 @@ if __name__ == "__main__":
             for question in questions:
                 row_id = add_question(conn, question)
                 answer = answer_creation(conn, question)
-                add_answer(conn, answer)
+                add_answer(conn, row_id, answer)
                 print(f"{row_id} is done.")
