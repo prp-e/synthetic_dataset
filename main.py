@@ -100,7 +100,7 @@ if __name__ == "__main__":
 ]
     
     languages = ["Persian", "English", "Arabic", "Russian", "Hindi", "Chinese"]
-    qty = 1000
+    qty = 250
 
     initialize_database()
     conn = sqlite3.connect("db.sqlite")
