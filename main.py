@@ -81,6 +81,7 @@ def answer_creation(question, language):
     return answer.choices[0].message.content
 
 if __name__ == "__main__":
+
     topics = [
     "abstract_algebra", "anatomy", "astronomy", "business_ethics", "clinical_knowledge",
     "college_biology", "college_chemistry", "college_computer_science", "college_mathematics",
@@ -97,3 +98,7 @@ if __name__ == "__main__":
     "professional_medicine", "professional_psychology", "public_relations", "security_studies",
     "sociology", "us_foreign_policy", "virology", "world_religions"
 ]
+    
+    languages = []
+
+    initialize_database()
