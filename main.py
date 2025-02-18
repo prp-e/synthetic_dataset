@@ -107,7 +107,8 @@ if __name__ == "__main__":
 
     for lang in languages:
         print(f"Working on the {lang} portion of the dataset.")
-        for topic in topics[:5]:
+        for topic in topics:
+            print(f"Working on {topic}")
             questions = questions_creation(topic, lang, qty)
             for question in questions:
                 row_id = add_question(conn, question)
