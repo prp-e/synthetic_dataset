@@ -34,7 +34,24 @@ def questions_creation(topic, language, qty):
     return questions
 
 def answer_creation(question, language):
-    pass
+    
+    answer = client.chat.completion.create(
+        model = "openai",
+        messages = [
+            {
+                "role" : "system",
+                "content" : "You are a helpful assistant and designed to provide detailed and useful information on question you've been asked. Your task is to provide a very detailed answer and use reasoning if necessary. Also the language for questions and answers are provided by the user. Use the provided data well."
+            },
+            {
+                "role" : "user",
+                "content": f"question: {question}\nlanguage:{language}"
+            }
+        ],
+        temperature = 0.85,
+        max_tokens = 4096
+    )
+
+    return answer.choices[0].message.content
 
 if __name__ == "__main__":
     topics = [
