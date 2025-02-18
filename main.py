@@ -33,7 +33,7 @@ def questions_creation(topic, language, qty):
     
     return questions
 
-def answer_creation(question):
+def answer_creation(question, language):
     pass
 
 if __name__ == "__main__":
