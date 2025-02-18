@@ -19,7 +19,7 @@ def questions_creation(topic, language, qty):
                 "content" : f"topic: {topic}\nlanguage:{language}"
             }
         ],
-        temperature = 0.5 
+        temperature = 1.0
     )
             question = question.choices[0].message.content
             questions.append(question)
