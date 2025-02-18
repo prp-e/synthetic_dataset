@@ -22,6 +22,17 @@ def initialize_database():
     conn.commit()
     conn.close()
 
+def add_question(conn, question):
+    cursor = conn.cursor()
+    cursor.execute("INSERT INTO data (question) VALUES (?)", (question,))
+    conn.commit()
+    return cursor.lastrowid
+
+def add_answer(conn, row_id, answer):
+    cursor = conn.cursor()
+    cursor.execute("UPDATE data SET answer = ? WHERE id = ?", (answer, row_id))
+    conn.commit()
+
 def questions_creation(topic, language, qty):
     questions = []
     for q in range(qty):
