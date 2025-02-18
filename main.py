@@ -99,6 +99,7 @@ if __name__ == "__main__":
     "sociology", "us_foreign_policy", "virology", "world_religions"
 ]
     
-    languages = []
-
+    languages = ["Persian", "English"]
+    qty = 1
+    
     initialize_database()
