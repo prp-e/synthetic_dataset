@@ -99,8 +99,8 @@ if __name__ == "__main__":
     "sociology", "us_foreign_policy", "virology", "world_religions"
 ]
     
-    languages = ["Persian", "English"]
-    qty = 1
+    languages = ["Persian", "English", "Arabic", "Russian", "Hindi", "Chinese"]
+    qty = 1000
 
     initialize_database()
     conn = sqlite3.connect("db.sqlite")
