@@ -27,6 +27,7 @@ def questions_creation(topic, language, qty):
         )
             questions.append(question.choices[0].message.content)
             print(f"Question {q} has been generated successfully.")
+            time.sleep(0.25)
         except:
             print("An error occured.")
     
