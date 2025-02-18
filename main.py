@@ -2,12 +2,9 @@ from openai import OpenAI
 
 client = OpenAI(base_url = "https://text.pollinations.ai/openai", api_key="sk-0000000000000000000000000")
 
-def questions_creation(topic, language, qty):
-    questions = []
-
-    for q in range(qty):
-        try:
-            question = client.chat.completions.create(
+def questions_creation(topic, language):
+    try:
+        question = client.chat.completions.create(
         model = "openai",
         messages = [
             {
@@ -22,14 +19,9 @@ def questions_creation(topic, language, qty):
         temperature = 1.0
     )
             
-            questions.append(question.choices[0].message.content)
-        except:
-            print("An error occured.")
-        
-    return questions
-
-
-
+        return question.choices[0].message.content
+    except:
+        print("An error occured.")
 
 if __name__ == "__main__":
     topics = [
