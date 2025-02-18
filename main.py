@@ -101,5 +101,15 @@ if __name__ == "__main__":
     
     languages = ["Persian", "English"]
     qty = 1
-    
+
     initialize_database()
+    conn = sqlite3.connect("db.sqlite")
+
+    for lang in languages:
+        print(f"Working on the {lang} portion of the dataset.")
+        for topic in topics[:5]:
+            questions = questions_creation(topic, lang, qty)
+            for question in questions:
+                row_id = add_question(question)
+                answer = answer_creation(conn, question)
+                add_answer(conn, answer)
