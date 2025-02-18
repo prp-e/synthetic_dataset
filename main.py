@@ -5,27 +5,30 @@ random.seed()
 
 client = OpenAI(base_url = "https://text.pollinations.ai/openai", api_key="sk-0000000000000000000000000")
 
-def questions_creation(topic, language):
-    try:
-        question = client.chat.completions.create(
-        model = "openai",
-        messages = [
-            {
-                "role" : "system",
-                "content" : "You are a question generator. The user gives you a topic and a language, you must generate a question in that topic and language. Do not use markdown."
-            },
-            {
-                "role" : "user",
-                "content" : f"topic: {topic}\nlanguage:{language}"
-            }
-        ],
-        temperature = 1.0,
-        seed = random.randint(0, 999999999999)
-    )
-            
-        return question.choices[0].message.content
-    except:
-        print("An error occured.")
+def questions_creation(topic, language, qty):
+    questions = []
+    for q in range(qty):
+        try:
+            question = client.chat.completions.create(
+            model = "openai",
+            messages = [
+                {
+                    "role" : "system",
+                    "content" : "You are a question generator. The user gives you a topic and a language, you must generate a question in that topic and language. Do not use markdown."
+                },
+                {
+                    "role" : "user",
+                    "content" : f"topic: {topic}\nlanguage:{language}"
+                }
+            ],
+            temperature = 1.0,
+            seed = random.randint(0, 999999999999)
+        )
+            questions.append(question.choices[0].message.content)
+        except:
+            print("An error occured.")
+    
+    return questions
 
 if __name__ == "__main__":
     topics = [
