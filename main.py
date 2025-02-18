@@ -19,7 +19,8 @@ def questions_creation(topic, language):
                 "content" : f"topic: {topic}\nlanguage:{language}"
             }
         ],
-        temperature = 1.0
+        temperature = 1.0,
+        seed = random.randint(0, 999999999999)
     )
             
         return question.choices[0].message.content
