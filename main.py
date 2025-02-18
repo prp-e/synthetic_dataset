@@ -21,8 +21,8 @@ def questions_creation(topic, language, qty):
         ],
         temperature = 1.0
     )
-            question = question.choices[0].message.content
-            questions.append(question)
+            
+            questions.append(question.choices[0].message.content)
         except:
             print("An error occured.")
         
