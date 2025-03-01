@@ -39,7 +39,7 @@ def questions_creation(topic, language, qty):
     for q in range(qty):
         try:
             question = client.chat.completions.create(
-            model = "openai",
+            model = "deepseek/deepseek_v3",
             messages = [
                 {
                     "role" : "system",
@@ -64,7 +64,7 @@ def questions_creation(topic, language, qty):
 def answer_creation(question, language):
     
     answer = client.chat.completions.create(
-        model = "openai",
+        model = "deepseek/deepseek_v3",
         messages = [
             {
                 "role" : "system",
@@ -101,7 +101,7 @@ if __name__ == "__main__":
 ]
     
     languages = ["Persian", "English", "Arabic", "Russian", "Hindi", "Chinese"]
-    qty = 250
+    qty = 1000
 
     initialize_database()
     conn = sqlite3.connect("db.sqlite")
