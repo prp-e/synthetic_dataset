@@ -6,7 +6,7 @@ from config import *
 
 random.seed()
 
-client = OpenAI(base_url = "https://text.pollinations.ai/openai", api_key=NOVITA_AI_KEY)
+client = OpenAI(base_url = "https://api.novita.ai/v3/openai", api_key=NOVITA_AI_KEY)
 
 def initialize_database():
     conn = sqlite3.connect("db.sqlite")
