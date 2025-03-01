@@ -94,6 +94,8 @@ if __name__ == "__main__":
     initialize_database()
     conn = sqlite3.connect("db.sqlite")
 
+    print(f"There are {len(topics)} topics.")
+
     for lang in languages:
         print(f"Working on the {lang} portion of the dataset.")
         for topic in topics:
