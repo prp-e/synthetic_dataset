@@ -100,7 +100,7 @@ if __name__ == "__main__":
     "sociology", "us_foreign_policy", "virology", "world_religions"
 ]
     
-    languages = ["Persian", "English", "Arabic", "Russian", "Hindi", "Chinese"]
+    languages = ["Persian", "English", "Arabic", "Turkish"]
     qty = 100
 
     initialize_database()
