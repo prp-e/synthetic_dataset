@@ -2,6 +2,7 @@ import random
 import time
 import sqlite3
 from openai import OpenAI
+from config import *
 
 random.seed()
 
