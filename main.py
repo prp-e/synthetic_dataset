@@ -9,7 +9,7 @@ random.seed()
 client = OpenAI(base_url = "https://api.novita.ai/v3/openai", api_key=NOVITA_AI_KEY)
 
 def initialize_database():
-    conn = sqlite3.connect("db.sqlite")
+    conn = sqlite3.connect("dataset.sqlite")
     cursor = conn.cursor()
 
     cursor.execute('''
