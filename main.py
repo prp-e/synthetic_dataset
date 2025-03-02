@@ -92,7 +92,7 @@ if __name__ == "__main__":
     qty = 100
 
     initialize_database()
-    conn = sqlite3.connect("db.sqlite")
+    conn = sqlite3.connect("dataset.sqlite")
 
     print(f"There are {len(topics)} topics.")
 
