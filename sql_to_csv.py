@@ -7,7 +7,7 @@ cursor = conn.cursor()
 cursor.execute("SELECT question, answer FROM data")
 rows = cursor.fetchall()
 
-data = [json.dumps([question, answer]) for question, answer in rows]
+data = [f"###Human:\n {question}\n\n\n###Assistant:\n{answer}" for question, answer in rows]
 
 df_title = "text\n"
 data_csv = '\n'.join(data)
