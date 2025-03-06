@@ -7,14 +7,12 @@ cursor = conn.cursor()
 cursor.execute("SELECT question, answer FROM data")
 rows = cursor.fetchall()
 
-data = [f"###Human:\n {question}\n\n\n###Assistant:\n{answer}" for question, answer in rows]
+data = [json.dumps([{"from" : "human", "value": question}, {"from" : "gpt", "value" : answer}]) for question, answer in rows]
 
 df_title = "text\n"
-data_csv = '\n'.join(data)
-
-final_data = f"{df_title}{data_csv}"
+data_jsonl = '\n'.join(data)
 
 conn.close()
 
-with open("dataset.csv", "w") as dataset:
-    dataset.write(final_data)
+with open("dataset.jsonl", "w") as dataset:
+    dataset.write(data_jsonl)
