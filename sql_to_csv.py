@@ -1,20 +1,22 @@
 import sqlite3
-import json
+import pandas as pd
 
+# Connect to SQLite database
 conn = sqlite3.connect("dataset.sqlite")
 cursor = conn.cursor()
 
+# Fetch data
 cursor.execute("SELECT question, answer FROM data")
 rows = cursor.fetchall()
 
-data = [f"###Human:\n {question}\n\n\n###Assistant:\n{answer}" for question, answer in rows]
+# Convert to a Pandas DataFrame
+df = pd.DataFrame(rows, columns=["question", "answer"])
 
-df_title = "text\n"
-data_csv = '\n'.join(data)
+# Save to CSV with a header
+csv_filename = "dataset.csv"
+df.to_csv(csv_filename, index=False)
 
-final_data = f"{df_title}{data_csv}"
+print(f"CSV file saved as {csv_filename}")
 
+# Close the connection
 conn.close()
-
-with open("dataset.csv", "w") as dataset:
-    dataset.write(final_data)
