@@ -6,8 +6,9 @@ cursor = conn.cursor()
 cursor.execute("SELECT question, answer FROM data")
 rows = cursor.fetchall()
 
-data = [item for row in rows for item in row]
+data = [f"{question}, {answer}" for question, answer in rows]
 
-
+df_title = "question, answer\n"
+data_csv = '\n'.join(data)
 
 conn.close()
