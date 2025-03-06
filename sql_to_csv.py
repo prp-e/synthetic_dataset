@@ -1,5 +1,5 @@
 import sqlite3
-import datasets
+import pandas as pd
 
 conn = sqlite3.connect("dataset.sqlite")
 cursor = conn.cursor()
