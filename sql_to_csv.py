@@ -11,4 +11,8 @@ data = [f"{question}, {answer}" for question, answer in rows]
 df_title = "question, answer\n"
 data_csv = '\n'.join(data)
 
+final_data = f"{df_title}{data_csv}"
+
+print(final_data)
+
 conn.close()
