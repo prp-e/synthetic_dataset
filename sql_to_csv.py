@@ -13,6 +13,7 @@ data_csv = '\n'.join(data)
 
 final_data = f"{df_title}{data_csv}"
 
-print(final_data)
-
 conn.close()
+
+with open("dataset.csv", "w") as dataset:
+    dataset.write(final_data)
