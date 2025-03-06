@@ -10,9 +10,9 @@ rows = cursor.fetchall()
 data = [json.dumps([{"from" : "human", "value": question}, {"from" : "gpt", "value" : answer}]) for question, answer in rows]
 
 df_title = "text\n"
-data_jsonl = '\n'.join(data)
+data_jsonl = ',\n'.join(data)
 
 conn.close()
 
-with open("dataset.jsonl", "w") as dataset:
+with open("dataset.json", "w") as dataset:
     dataset.write(data_jsonl)
